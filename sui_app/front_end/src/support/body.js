@@ -1,25 +1,40 @@
-import React, { useState } from 'react';
-import './body.css'; // External CSS for styling
+import React from 'react';
+import './body.css';
+import defaultImage from '../imgs/logo.svg';
 
-const Body = () => {
-  const [selectedImage, setSelectedImage] = useState('defaultHome.jpg'); 
+const App = () => {
   return (
-    <div className="body">
-      
-        <nav>
-          <ul>
-            <li><a href="#home" onClick={() => setSelectedImage('defaultHome.jpg')}>Home</a></li>
-            <li><a href="#game1" onClick={() => setSelectedImage('game1.jpg')}>Game 1</a></li>
-            <li><a href="#game2" onClick={() => setSelectedImage('game2.jpg')}>Game 2</a></li>
-            <li><a href="#game3" onClick={() => setSelectedImage('game3.jpg')}>Game 3</a></li>
-          </ul>
-        </nav>
-      <main>
-        <img src={selectedImage} alt="Selected View" className="main-image"/>
-      </main>
+    <div className="app">
+      <main className="game-container">
 
+
+        <div className="game-thumbnail" onClick={() => console.log("Navigate to Game 1")}>
+          <img src={defaultImage} alt="Default Game" />
+          <p>Game 1</p>
+        </div>
+
+        <div className="game-thumbnail" onClick={() => console.log("Navigate to Game 1")}>
+          <img src={defaultImage} alt="Default Game" />
+          <p>Game 1</p>
+        </div>
+
+        <div className="game-thumbnail" onClick={() => console.log("Navigate to Game 1")}>
+          <img src={defaultImage} alt="Default Game" />
+          <p>Game 1</p>
+        </div>
+
+        <div className="game-thumbnail" onClick={() => console.log("Navigate to Game 1")}>
+          <img src={defaultImage} alt="Default Game" />
+          <p>Game 1</p>
+        </div>
+        <div className="game-thumbnail" onClick={() => console.log("Navigate to Game 1")}>
+          <img src={defaultImage} alt="Default Game" />
+          <p>Game 1</p>
+        </div>
+        
+      </main>
     </div>
   );
 };
 
-export default Body;
+export default App;
