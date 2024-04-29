@@ -1,9 +1,13 @@
 @import url(global.css);
+
+
 nav {
+  border-bottom: 3px solid var(--highlight-color);
+  padding: 10px;
   width: 100%; /* Ensures the nav container spans the full width */
   display: flex;
   justify-content: center; /* Centers the navigation items */
-  padding-top: 20px; /* Prevents touching the top */
+ 
 }
 
 nav ul {
@@ -19,6 +23,9 @@ nav ul {
 
 nav li {
   position: relative;
+  padding-top: 10px; /* Prevents touching the top */
+  padding-bottom: 10px;
+
 }
 
 nav a {
@@ -59,13 +66,10 @@ nav li:hover .dropdown {
   color: var(--background-color);
 }
 
+.logo-box {
+  align-self: center; /* Center the logo */
+}
 
-
-
-  .logo-box {
-    align-self: center; /* Center the logo */
-  }
-  
-  .logo {
-    height: 40px; /* Adjust logo height */
-  }
+.logo {
+  height: 40px; /* Adjust logo height */
+}
