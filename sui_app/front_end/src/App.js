@@ -1,9 +1,12 @@
-import logo from './logo.svg';
+import logo from './imgs/logo.svg';
 import { getFullnodeUrl, SuiClient } from '@mysten/sui.js/client';
 import { Ed25519Keypair } from '@mysten/sui.js/keypairs/ed25519';
 import { TransactionBlock } from '@mysten/sui.js/transactions';
 import './App.css';
 import Flip_Coin from './CoinFlip';
+
+import Header from './support/header'
+import Body from './support/body'
 
 // create a client connected to devnet
 const client = new SuiClient({ url: getFullnodeUrl('devnet') });// create a client connected to devnet
@@ -15,10 +18,12 @@ await client.getCoins({
 
 function App() {
   return (
-    <div className="App">
-      <h1>Test2</h1>
-      <Flip_Coin/>
-    </div>
+    
+    <website>
+      <Header/>
+      <Body/>
+  </website>
+
   );
 }
 

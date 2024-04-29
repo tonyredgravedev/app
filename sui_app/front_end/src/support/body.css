@@ -1,0 +1,35 @@
+.body {
+    display: flex; /* Horizontal flex layout */
+    height: 100vh; /* Full viewport height */
+  }
+  
+  .left-column {
+    width: 10%; /* Fixed width for the navigation column */
+    text-align: center;
+    padding: 30px;
+    background-color: var(--background-color); /* Dark grey */
+    border-right: 2px solid var(--highlight-color); /* Gold border */
+  }
+  
+  .left-column ul {
+    list-style: none; /* No bullets */
+    padding: 0;
+    margin: 0;
+  }
+  
+  .left-column a {
+    color: var(--highlight-color); /* Gold text */
+    text-decoration: none;
+  }
+  
+  .left-column a:hover {
+    text-decoration: underline; /* Underline on hover */
+  }
+  
+  .right-column {
+    flex-grow: 80%; /* Take up remaining space */
+    padding: 20px;
+    background-color: var(--background-color); /* Dark grey */
+    color: var(--text-color); /* Light text */
+  }
+  
