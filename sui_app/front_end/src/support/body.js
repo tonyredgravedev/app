@@ -1,39 +1,63 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './body.css';
 import defaultImage from '../imgs/logo.svg';
 
 const App = () => {
-  return (
-    <div className="app">
-      <main className="game-container">
+
+  const [selectedGame, setSelectedGame] = useState('home');
+
+  const handleGameClick = (game) => {
+    setSelectedGame(game);
+  };
 
 
-        <div className="game-thumbnail" onClick={() => console.log("Navigate to Game 1")}>
-          <img src={defaultImage} alt="Default Game" />
-          <p>Game 1</p>
-        </div>
+return (
+  <Router>
+    <div>
 
-        <div className="game-thumbnail" onClick={() => console.log("Navigate to Game 1")}>
-          <img src={defaultImage} alt="Default Game" />
-          <p>Game 1</p>
-        </div>
+    
+      {selectedGame === 'home' && (
+        <div className="game-container">
 
-        <div className="game-thumbnail" onClick={() => console.log("Navigate to Game 1")}>
-          <img src={defaultImage} alt="Default Game" />
-          <p>Game 1</p>
-        </div>
+          <div className="game-thumbnail" onClick={() => handleGameClick('game1')}>
+            <Link to="/game1" className="link-style">
+            <img src={defaultImage} alt="Coming Soon"/>
+            <p>Coming Soon</p>
+            </Link>
+          </div>
 
-        <div className="game-thumbnail" onClick={() => console.log("Navigate to Game 1")}>
-          <img src={defaultImage} alt="Default Game" />
-          <p>Game 1</p>
+          <div className="game-thumbnail" onClick={() => handleGameClick('game2')}>
+            <Link to="/home" className="link-style">
+              <img src={defaultImage} alt="Coming Soon" className="spinning"/>
+              <p>Coming Soon</p>
+            </Link>
+          </div>
+
+      </div>
+      )}
+      {selectedGame === 'game1' && (
+        <div>
+          <h2>Game 1 Details</h2>
+          {
+
+          }
         </div>
-        <div className="game-thumbnail" onClick={() => console.log("Navigate to Game 1")}>
-          <img src={defaultImage} alt="Default Game" />
-          <p>Game 1</p>
+      )}
+      {selectedGame === 'game2' && (
+        <div>
+          <h2>Game 2 Details</h2>
+          {
+            
+          }
         </div>
-        
-      </main>
+      )}
+
+
+      
     </div>
+    </Router>
   );
 };
 

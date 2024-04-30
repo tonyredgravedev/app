@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './header.css'; // External CSS for styling
+import logo from '../imgs/logo.svg';
 
 
 const Header = () => {
@@ -9,6 +10,7 @@ const Header = () => {
     <header>
       <nav>
         <ul>
+          
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li onMouseEnter={() => setActiveItem('games')}
@@ -27,8 +29,12 @@ const Header = () => {
             </ul>
           </li>
           <li><a href="#contact">Contact</a></li>
+          <div className="logo-container">
+            <img src={logo} alt="Logo" className="logo" />
+          </div>
         </ul>
       </nav>
+      
     </header>
   );
 };

@@ -66,10 +66,13 @@ nav li:hover .dropdown {
   color: var(--background-color);
 }
 
-.logo-box {
-  align-self: center; /* Center the logo */
+.logo-container {
+  position: absolute;
+  left: 0;
+  margin-left: 20px;
 }
 
 .logo {
-  height: 40px; /* Adjust logo height */
+  width: 50px; /* Adjust size as needed */
+  height: auto;
 }

@@ -1,3 +1,17 @@
+@import url(global.css);
+
+
+
+@keyframes spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+.spinning {
+  animation: spin 2s linear infinite;
+  animation-delay: -2s;  /* Negative delay to synchronize animations */
+}
+
 .game-container {
   display: flex;
   justify-content: center; /* Centers the thumbnails horizontally */
@@ -28,4 +42,9 @@
 
 .game-thumbnail:hover p { /* Changes the text color when the entire thumbnail is hovered */
   color: var(--highlight-color);
+}
+
+.link-style {
+  text-decoration: none; /* Remove underlining */
+  color: var(--text-color); /* Change text color */
 }
