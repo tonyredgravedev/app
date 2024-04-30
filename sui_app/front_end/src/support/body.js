@@ -23,7 +23,7 @@ return (
 
           <div className="game-thumbnail" onClick={() => handleGameClick('game1')}>
             <Link to="/game1" className="link-style">
-            <img src={defaultImage} alt="Coming Soon"/>
+            <img src={defaultImage} alt="Coming Soon" className="slowing-down-image"/>
             <p>Coming Soon</p>
             </Link>
           </div>
