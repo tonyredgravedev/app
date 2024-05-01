@@ -4,7 +4,7 @@ import logo from '../imgs/logo.svg';
 
 
 const Header = () => {
-  const [activeItem, setActiveItem] = useState(null);
+  const [activeItem, setActiveItem] = useState<string | null>(null);
 
   return (
     <header>

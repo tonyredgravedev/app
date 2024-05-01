@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './body.css';
 import defaultImage from '../imgs/logo.svg';
-import HigherLowerGame from './higher_or_lower';
+import HigherLowerGame from './higher_or_lower.tsx';
 
 const App = () => {
 
