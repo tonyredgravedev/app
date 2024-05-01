@@ -12,6 +12,35 @@
   animation-delay: -2s;  /* Negative delay to synchronize animations */
 }
 
+
+
+
+
+
+@keyframes spin_slow {
+  0% {
+    transform: rotateX(0deg);
+    animation-timing-function: linear; /* Linear timing function for initial spin */
+  }
+  50% {
+    transform: rotateX(720deg); /* Fast spin */
+    animation-timing-function: ease-out; /* Deceleration effect */
+  }
+  100% {
+    transform: rotateX(1080deg); /* Final rotation position */
+    animation-timing-function: ease-in-out; /* Smooth stop */
+  }
+}
+
+.slowing-down-image {
+  animation: spin_slow 5s; /* Adjust duration as needed */
+}
+
+
+
+
+
+
 .game-container {
   display: flex;
   justify-content: center; /* Centers the thumbnails horizontally */

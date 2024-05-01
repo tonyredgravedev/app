@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import './body.css';
 import defaultImage from '../imgs/logo.svg';
+import HigherLowerGame from './higher_or_lower';
 
 const App = () => {
 
@@ -17,13 +18,13 @@ return (
   <Router>
     <div>
 
-    
+  
       {selectedGame === 'home' && (
         <div className="game-container">
 
           <div className="game-thumbnail" onClick={() => handleGameClick('game1')}>
             <Link to="/game1" className="link-style">
-            <img src={defaultImage} alt="Coming Soon" className="slowing-down-image"/>
+            <img src={defaultImage} alt="Coming Soon"/>
             <p>Coming Soon</p>
             </Link>
           </div>
@@ -39,9 +40,8 @@ return (
       )}
       {selectedGame === 'game1' && (
         <div>
-          <h2>Game 1 Details</h2>
           {
-
+            <HigherLowerGame/>
           }
         </div>
       )}

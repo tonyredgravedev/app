@@ -1,0 +1,92 @@
+@import url(global.css);
+
+
+.higher-lower-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  margin: auto;
+  margin-top: 10vh;
+  background-color: var(--box-background-color);
+  color: var(--text-color);
+  border-radius: 8px;
+  border: 2px solid var(--highlight-color);
+}
+
+.slider-container {
+  position: relative;
+  width: 100%; /* Adjusted to fit within the box */
+  margin: 20px 0;
+}
+
+.current-value-box {
+  position: absolute;
+  top: -30px; /* Position above the slider */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--highlight-color);
+  color: var(--background-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  align-items: center; /* Center align buttons */
+  gap: 20px; /* Add space between buttons */
+  margin-bottom: 20px; /* Additional spacing from the slider */
+}
+
+.guess-button {
+  background-color: #555; /* Default non-selected color */
+  color: var(--text-color);
+  border: none;
+  padding: 20px 20px; /* Increase padding to make buttons larger */
+  font-size: 16px; /* Font size can be adjusted if needed */
+  cursor: pointer;
+  border-radius: 0; /* Make the buttons square */
+  width: 100px; /* Set width for square shape */
+  height: 100px; /* Set height equal to width for square shape */
+  transition: background-color 0.3s;
+}
+
+.guess-button.selected {
+  background-color: var(--highlight-color); /* Highlight color for selected button */
+  color: var(--background-color); /* Ensure text color contrasts well with background */
+}
+
+.range-labels {
+  display: flex;
+  justify-content: space-between;
+}
+
+input[type="range"] {
+  appearance: none;
+  width: 100%;
+  height: 15px;
+  background: #ddd;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: var(--highlight-color);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.bet-amount {
+  padding: 8px;
+  margin: 10px 0;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #333;
+  color: var(--text-color);
+  width: 100%;
+}
