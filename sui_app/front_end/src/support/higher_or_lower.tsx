@@ -1,36 +1,36 @@
 import React, { useState } from 'react';
 import './higher_or_lower.css'; // Ensure the CSS file is linked
 
-const HigherLowerGame = () => {
-  const [selectedNumber, setSelectedNumber] = useState(50);
-  const [betAmount, setBetAmount] = useState('');
-  const [guessDirection, setGuessDirection] = useState('lower'); // Set 'lower' as default
+const HigherLowerGame: React.FC = () => {
+  const [selectedNumber, setSelectedNumber] = useState<number>(50);
+  const [betAmount, setBetAmount] = useState<string>('');
+  const [guessDirection, setGuessDirection] = useState<'higher' | 'lower'>('lower'); // Set 'lower' as default
 
-  const handleNumberChange = (event) => {
-    setSelectedNumber(event.target.value);
+  const handleNumberChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    setSelectedNumber(parseInt(event.target.value, 10));
   };
 
-  const handleBetAmountChange = (event) => {
+  const handleBetAmountChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setBetAmount(event.target.value);
   };
 
-  const makeGuess = (direction) => {
+  const makeGuess = (direction: 'higher' | 'lower'): void => {
     setGuessDirection(direction);
   };
 
-  const calculateProbability = () => {
+  const calculateProbability = (): string => {
     if (!guessDirection) return '0.00';
     const difference = guessDirection === 'higher' ? 100 - selectedNumber : selectedNumber - 1;
-    return (difference / 99 * 100).toFixed(2);
+    return ((difference / 99) * 100).toFixed(2);
   };
 
-  // Calculate the color for the slider based on the guess direction
+  // Correct the gradient to reflect the choice accurately
   const sliderStyle = {
     background: `linear-gradient(to right, 
-                 ${guessDirection === 'lower' ? 'green' : 'red'} 0%, 
-                 ${guessDirection === 'lower' ? 'green' : 'red'} ${selectedNumber}%, 
-                 ${guessDirection === 'higher' ? 'green' : 'red'} ${selectedNumber}%, 
-                 ${guessDirection === 'higher' ? 'green' : 'red'} 100%)`
+                 ${guessDirection === 'higher' ? '#F44336' : '#4CAF50'} 0%, 
+                 ${guessDirection === 'higher' ? '#F44336' : '#4CAF50'} ${selectedNumber}%, 
+                 ${guessDirection === 'higher' ? '#4CAF50' : '#F44336'} ${selectedNumber}%, 
+                 ${guessDirection === 'higher' ? '#4CAF50' : '#F44336'} 100%)`
   };
 
   return (
@@ -49,29 +49,35 @@ const HigherLowerGame = () => {
           Higher
         </button>
       </div>
+      <div className="current-value-box">{selectedNumber}</div>
       <div className="slider-container">
-        <div className="current-value-box">{selectedNumber}</div> {/* User's current guess displayed in a box */}
-        <input
-          type="range"
-          min="1"
-          max="100"
-          value={selectedNumber}
-          onChange={handleNumberChange}
-          style={sliderStyle}
-        />
-        <div className="range-labels">
-          <span>1</span>
-          <span>100</span>
-        </div>
-      </div>
       <input
-        type="number"
-        className="bet-amount"
-        value={betAmount}
-        onChange={handleBetAmountChange}
-        placeholder="Enter your bet amount"
+        type="range"
+        min="1"
+        max="100"
+        value={selectedNumber}
+        onChange={handleNumberChange}
+        style={sliderStyle}
       />
-      <div>Probability of winning: {calculateProbability()}%</div>
+      <div className="range-labels">
+        <span>1</span>
+        <span>100</span>
+      </div>
+    </div>
+      <div className="bet-input-group">
+        <span className="bet-amount-label">Enter your bet amount:</span>
+        <input
+          type="number"
+          className="bet-amount"
+          value={betAmount}
+          onChange={handleBetAmountChange}
+          placeholder="Bet amount"
+        />
+      </div>
+      <div className="probability-container">
+        <span>Probability of winning:</span>
+        <div className="probability-box">{calculateProbability()}%</div>
+      </div>
     </div>
   );
 };

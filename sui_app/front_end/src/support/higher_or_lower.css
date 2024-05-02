@@ -1,6 +1,5 @@
 @import url(global.css);
 
-
 .higher-lower-container {
   display: flex;
   flex-direction: column;
@@ -10,83 +9,122 @@
   padding: 20px;
   margin: auto;
   margin-top: 10vh;
-  background-color: var(--box-background-color);
+  background-color: var(--background-color);
   color: var(--text-color);
   border-radius: 8px;
   border: 2px solid var(--highlight-color);
 }
 
-.slider-container {
-  position: relative;
-  width: 100%; /* Adjusted to fit within the box */
-  margin: 20px 0;
-}
-
-.current-value-box {
-  position: absolute;
-  top: -30px; /* Position above the slider */
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: var(--highlight-color);
-  color: var(--background-color);
-  padding: 5px 10px;
-  border-radius: 5px;
-}
-
 .button-group {
   display: flex;
-  flex-direction: column; /* Stack buttons vertically */
-  align-items: center; /* Center align buttons */
-  gap: 20px; /* Add space between buttons */
-  margin-bottom: 20px; /* Additional spacing from the slider */
+  justify-content: space-between;
+  width: 100%; /* Full width to spread out the buttons */
+  margin: 20px 0; /* Space around the button group */
 }
 
 .guess-button {
-  background-color: #555; /* Default non-selected color */
+  background-color: var(--button-color);
   color: var(--text-color);
   border: none;
-  padding: 20px 20px; /* Increase padding to make buttons larger */
-  font-size: 16px; /* Font size can be adjusted if needed */
+  padding: 15px 60px; /* Make buttons larger and more rectangular */
+  font-size: 18px; /* Larger font size */
   cursor: pointer;
-  border-radius: 0; /* Make the buttons square */
-  width: 100px; /* Set width for square shape */
-  height: 100px; /* Set height equal to width for square shape */
+  border-radius: 5px;
+  flex: 1; /* Allow buttons to fill space */
+  margin: 0 10px; /* Space between buttons */
   transition: background-color 0.3s;
 }
 
 .guess-button.selected {
-  background-color: var(--highlight-color); /* Highlight color for selected button */
-  color: var(--background-color); /* Ensure text color contrasts well with background */
+  background-color: var(--highlight-color);
+  color: var(--background-color);
+}
+
+.current-value-box {
+  margin: 20px 0; /* Space above and below the current value box */
+  background-color: var(--highlight-color);
+  color: var(--background-color);
+  padding: 15px;
+  font-size: 24px; /* Increased font size for better visibility */
+  border-radius: 10px;
+  width: 150px; /* Adjust width if necessary */
+  height: 150px; /* Adjust height if necessary */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider-container {
+  position: relative;
+  width: 100%;
+  padding: 0 10px; /* Adds padding to ensure labels are not cut off */
+  margin-bottom: 40px; /* Increased space below slider */
+}
+
+input[type="range"] {
+  -webkit-appearance: none; /* Overrides default browser appearance */
+  appearance: none;
+  width: 100%;
+  height: 8px; /* Adjusts the thickness of the slider */
+  background: transparent; /* Ensures custom background is visible */
+  outline: none;
+  margin: 10px 0; /* Space above and below the slider */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px; /* Size of the thumb */
+  height: 20px; /* Ensures it's large enough to be easy to drag */
+  background: var(--text-color);
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--text-color);
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 .range-labels {
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  top: 30px; /* Position below the slider */
+  left: 0; /* Align left edge with the container */
+  right: 0; /* Align right edge with the container */
+  pointer-events: none; /* Ensures clicks pass through to elements below */
 }
 
-input[type="range"] {
-  appearance: none;
+.range-labels span {
+  color: var(--text-color); /* Ensures visibility against the background */
+  font-size: 14px;
+}
+
+.bet-input-group, .probability-container {
   width: 100%;
-  height: 15px;
-  background: #ddd;
-  outline: none;
+  margin-top: 20px; /* Adjust spacing as needed */
 }
 
-input[type="range"]::-webkit-slider-thumb {
-  appearance: none;
-  width: 25px;
-  height: 25px;
-  background: var(--highlight-color);
-  cursor: pointer;
-  border-radius: 50%;
+.bet-amount-label {
+  margin-right: 10px;
+  color: var(--button-color);
 }
 
 .bet-amount {
+  flex: 1;
   padding: 8px;
-  margin: 10px 0;
   border: 2px solid #ccc;
   border-radius: 4px;
   background-color: #333;
   color: var(--text-color);
-  width: 100%;
+}
+
+.probability-box {
+  padding: 10px;
+  background-color: var( --button-color);
+  color: var(--text-color);
+  border-radius: 5px;
+  width: 55px; /* Adjust width if necessary */
 }
