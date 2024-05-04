@@ -64,14 +64,17 @@ const HigherLowerGame: React.FC = () => {
         <span>100</span>
       </div>
     </div>
+
     <div className="bet-input-group">
-    <span className="bet-amount-label">Enter your bet amount:</span>
+    <div className="bet-amount-label">Enter your bet amount:</div>
     <input type="number" className="bet-amount" value={betAmount} onChange={handleBetAmountChange} placeholder="Bet amount" />
-    </div>
-    <div className="probability-container">
-      <div className="probability-box">{calculateProbability()}%</div>
-      <span className="probability-text">Probability of winning</span>
-    </div>
+    <div className="empty-space"></div>  {/* Placeholder for alignment */}
+  </div>
+  <div className="probability-container">
+    <div className="empty-space"></div>  {/* Placeholder for alignment */}
+    <div className="probability-box">{calculateProbability()}%</div>
+    <div className="probability-text">Probability of winning</div>
+  </div>
 
       
     </div>

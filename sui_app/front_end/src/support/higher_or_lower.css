@@ -101,31 +101,29 @@ input[type="range"]::-moz-range-thumb {
   color: var(--text-color); /* Ensures visibility against the background */
   font-size: 14px;
 }
-
 /* Container styles for the input groups */
 .bet-input-group, .probability-container {
   display: flex;
   align-items: center;
-  justify-content: center; /* This ensures centering within the container */
+  justify-content: space-between; /* Distributes space evenly between children */
   width: 100%;
   margin-top: 20px;
 }
 
 /* Styles for labels */
-.bet-amount-label, .probability-text {
+.bet-amount-label {
   background-color: var(--button-color);
   color: var(--text-color);
   padding: 10px;
   border-radius: 5px;
   width: 150px; /* Explicit width for labels */
   text-align: center; /* Center text */
-  margin-right: 10px; /* Space between label and box */
 }
 
 /* Styles for input boxes */
 .bet-amount, .probability-box {
-  width: 100px; /* Smaller fixed width for square */
-  height: 100px; /* Height adjusted to maintain square shape */
+  width: 100px; /* Fixed width for square */
+  height: 100px; /* Fixed height to maintain square shape */
   padding: 8px;
   border: 2px solid #ccc;
   border-radius: 4px;
@@ -136,9 +134,28 @@ input[type="range"]::-moz-range-thumb {
   justify-content: center; /* Center content within boxes */
 }
 
-/* Extra container styles to enhance alignment */
-.bet-input-group, .probability-container {
-  display: flex;
-  justify-content: center; /* Align items centrally within the full width of the container */
-  gap: 10px; /* Optional: Adds space between elements within the container */
+/* Adjusting the bet input group for specific layout */
+.bet-input-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+}
+
+/* Adjusting the probability container for specific layout */
+.probability-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Three equal columns */
+}
+
+.probability-text {
+  background-color: var(--button-color);
+  color: var(--text-color);
+  padding: 10px;
+  border-radius: 5px;
+  width: 150px; /* Explicit width for labels */
+  text-align: center; /* Center text */
+}
+
+/* Empty div to maintain spacing and alignment */
+.empty-space {
+  width: 150px; /* Matching width to keep the spacing consistent */
 }
